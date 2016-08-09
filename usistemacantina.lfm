@@ -1,0 +1,278 @@
+object Form2: TForm2
+  Left = 238
+  Height = 548
+  Top = 119
+  Width = 470
+  Caption = 'MONTE O SEU LANCHE V 0.1'
+  ClientHeight = 548
+  ClientWidth = 470
+  LCLVersion = '1.6.0.4'
+  object LMLanche: TLabel
+    Left = 128
+    Height = 27
+    Top = 16
+    Width = 207
+    Caption = 'MONTE SEU LANCHE'
+    Font.Height = -20
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object GBPao: TGroupBox
+    Left = 16
+    Height = 152
+    Top = 64
+    Width = 201
+    Caption = 'Selecione o pão'
+    ClientHeight = 133
+    ClientWidth = 199
+    TabOrder = 0
+    object RP_0: TRadioButton
+      Left = 0
+      Height = 21
+      Top = 10
+      Width = 145
+      Caption = 'Pão de hambúrguer'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+    end
+    object RP_1: TRadioButton
+      Tag = 1
+      Left = 0
+      Height = 21
+      Top = 40
+      Width = 72
+      Caption = 'Integral'
+      TabOrder = 1
+    end
+    object RP_2: TRadioButton
+      Tag = 2
+      Left = 0
+      Height = 21
+      Top = 72
+      Width = 57
+      Caption = 'Preto'
+      TabOrder = 2
+    end
+    object RP_3: TRadioButton
+      Tag = 3
+      Left = 0
+      Height = 21
+      Top = 104
+      Width = 71
+      Caption = 'Francês'
+      TabOrder = 3
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 240
+    Height = 152
+    Top = 64
+    Width = 209
+    Caption = 'Selecione o hambúrguer'
+    ClientHeight = 133
+    ClientWidth = 207
+    TabOrder = 1
+    object RH_0: TRadioButton
+      Tag = 10
+      Left = 8
+      Height = 21
+      Top = 24
+      Width = 66
+      Caption = 'Bovino'
+      Checked = True
+      TabOrder = 0
+      TabStop = True
+    end
+    object RH_1: TRadioButton
+      Tag = 11
+      Left = 8
+      Height = 21
+      Top = 84
+      Width = 66
+      Caption = 'Frango'
+      TabOrder = 1
+    end
+  end
+  object GBIngredientes: TGroupBox
+    Left = 16
+    Height = 129
+    Top = 232
+    Width = 433
+    Caption = 'Selecione os ingredientes'
+    ClientHeight = 110
+    ClientWidth = 431
+    Enabled = False
+    TabOrder = 2
+    object CI_0: TCheckBox
+      Tag = 20
+      Left = 0
+      Height = 21
+      Top = 16
+      Width = 61
+      Caption = 'Bacon'
+      TabOrder = 0
+    end
+    object CI_1: TCheckBox
+      Tag = 21
+      Left = 0
+      Height = 21
+      Top = 48
+      Width = 84
+      Caption = 'Calabresa'
+      TabOrder = 1
+    end
+    object CI_2: TCheckBox
+      Tag = 22
+      Left = 0
+      Height = 21
+      Top = 80
+      Width = 49
+      Caption = 'Ovo'
+      TabOrder = 2
+    end
+    object CI_3: TCheckBox
+      Tag = 23
+      Left = 152
+      Height = 21
+      Top = 16
+      Width = 59
+      Caption = 'Picles'
+      TabOrder = 3
+    end
+    object CI_4: TCheckBox
+      Tag = 24
+      Left = 152
+      Height = 21
+      Top = 48
+      Width = 84
+      Caption = 'Maionese'
+      TabOrder = 4
+    end
+    object CI_5: TCheckBox
+      Tag = 25
+      Left = 152
+      Height = 21
+      Top = 80
+      Width = 111
+      Caption = 'Cream cheese'
+      TabOrder = 5
+    end
+    object CI_6: TCheckBox
+      Tag = 26
+      Left = 304
+      Height = 21
+      Top = 16
+      Width = 80
+      Caption = 'Presunto'
+      TabOrder = 6
+    end
+    object CI_7: TCheckBox
+      Tag = 27
+      Left = 304
+      Height = 21
+      Top = 48
+      Width = 99
+      Caption = 'Queijo Prato'
+      TabOrder = 7
+    end
+    object CI_8: TCheckBox
+      Tag = 28
+      Left = 304
+      Height = 21
+      Top = 80
+      Width = 109
+      Caption = 'Queijo chedar'
+      TabOrder = 8
+    end
+  end
+  object GBSalada: TGroupBox
+    Left = 16
+    Height = 49
+    Top = 384
+    Width = 433
+    Caption = 'Selecione a salada'
+    ClientHeight = 30
+    ClientWidth = 431
+    Enabled = False
+    TabOrder = 3
+    object CS_0: TCheckBox
+      Tag = 30
+      Left = 0
+      Height = 21
+      Top = 0
+      Width = 61
+      Caption = 'Alface'
+      Enabled = False
+      TabOrder = 0
+    end
+    object CS_1: TCheckBox
+      Tag = 31
+      Left = 152
+      Height = 21
+      Top = 0
+      Width = 71
+      Caption = 'Tomate'
+      Enabled = False
+      TabOrder = 1
+    end
+    object CS_2: TCheckBox
+      Tag = 32
+      Left = 304
+      Height = 21
+      Top = 0
+      Width = 64
+      Caption = 'Rúcula'
+      Enabled = False
+      TabOrder = 2
+    end
+  end
+  object B_0: TButton
+    Left = 16
+    Height = 41
+    Top = 448
+    Width = 128
+    Caption = 'Montar'
+    Enabled = False
+    TabOrder = 4
+  end
+  object B_1: TButton
+    Left = 16
+    Height = 40
+    Top = 496
+    Width = 128
+    Caption = 'Refazer'
+    Enabled = False
+    TabOrder = 5
+  end
+  object L_NOME: TLabel
+    Left = 152
+    Height = 27
+    Top = 456
+    Width = 293
+    Caption = 'AGUARDANDO MONTAGEM...'
+    Enabled = False
+    Font.Height = -20
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 152
+    Height = 18
+    Top = 496
+    Width = 79
+    Caption = 'Total a pagar'
+    Enabled = False
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 152
+    Height = 24
+    Top = 512
+    Width = 297
+    Enabled = False
+    TabOrder = 6
+  end
+end
