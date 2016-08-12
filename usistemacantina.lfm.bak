@@ -1,11 +1,12 @@
-object Form1: TForm1
-  Left = 283
-  Height = 546
+object FormLanche: TFormLanche
+  Left = 238
+  Height = 568
   Top = 119
   Width = 496
-  Caption = 'Form1'
-  ClientHeight = 546
+  Caption = 'Cantina de Lanches - Univel 20 Anos'
+  ClientHeight = 568
   ClientWidth = 496
+  OnCreate = FormCreate
   LCLVersion = '1.6.0.4'
   object Label1: TLabel
     Left = 112
@@ -23,6 +24,7 @@ object Form1: TForm1
     Height = 152
     Top = 72
     Width = 232
+    BorderSpacing.Around = 1
     Caption = 'Selecione o pão'
     ClientHeight = 133
     ClientWidth = 230
@@ -70,6 +72,7 @@ object Form1: TForm1
     Height = 152
     Top = 72
     Width = 233
+    BorderSpacing.Around = 1
     Caption = 'Selecione o hambúrguer'
     ClientHeight = 133
     ClientWidth = 231
@@ -99,47 +102,52 @@ object Form1: TForm1
     Height = 136
     Top = 240
     Width = 473
+    BorderSpacing.Around = 1
     Caption = 'Selecione os ingredientes'
     ClientHeight = 117
     ClientWidth = 471
     TabOrder = 2
-    object CheckBox1: TCheckBox
+    object C_Bacon: TCheckBox
       Tag = 30
       Left = 0
       Height = 21
       Top = 16
       Width = 61
       Caption = 'Bacon'
+      OnChange = C_BaconChange
       TabOrder = 0
     end
-    object CheckBox2: TCheckBox
+    object C_Calabresa: TCheckBox
       Tag = 31
       Left = 0
       Height = 21
       Top = 48
       Width = 84
       Caption = 'Calabresa'
+      OnChange = C_CalabresaChange
       TabOrder = 1
     end
-    object CheckBox3: TCheckBox
+    object C_Ovo: TCheckBox
       Tag = 32
       Left = 0
       Height = 21
       Top = 80
       Width = 49
       Caption = 'Ovo'
+      OnChange = C_OvoChange
       TabOrder = 2
     end
-    object CheckBox4: TCheckBox
+    object C_Picles: TCheckBox
       Tag = 33
       Left = 168
       Height = 21
       Top = 16
       Width = 59
       Caption = 'Picles'
+      OnChange = C_PiclesChange
       TabOrder = 3
     end
-    object CheckBox5: TCheckBox
+    object C_Maionese: TCheckBox
       Tag = 34
       Left = 168
       Height = 21
@@ -147,9 +155,10 @@ object Form1: TForm1
       Top = 48
       Width = 84
       Caption = 'Maionese'
+      OnChange = C_MaioneseChange
       TabOrder = 4
     end
-    object CheckBox6: TCheckBox
+    object C_Cream: TCheckBox
       Tag = 35
       Left = 168
       Height = 21
@@ -157,18 +166,20 @@ object Form1: TForm1
       Top = 80
       Width = 113
       Caption = 'Cream Cheese'
+      OnChange = C_CreamChange
       TabOrder = 5
     end
-    object CheckBox7: TCheckBox
+    object C_Presunto: TCheckBox
       Tag = 36
       Left = 336
       Height = 21
       Top = 16
       Width = 80
       Caption = 'Presunto'
+      OnChange = C_PresuntoChange
       TabOrder = 6
     end
-    object CheckBox8: TCheckBox
+    object C_Prato: TCheckBox
       Tag = 37
       Left = 336
       Height = 21
@@ -176,9 +187,10 @@ object Form1: TForm1
       Top = 48
       Width = 99
       Caption = 'Queijo prato'
+      OnChange = C_PratoChange
       TabOrder = 7
     end
-    object CheckBox9: TCheckBox
+    object C_Cheddar: TCheckBox
       Tag = 38
       Left = 336
       Height = 21
@@ -186,6 +198,7 @@ object Form1: TForm1
       Top = 80
       Width = 117
       Caption = 'Queijo cheddar'
+      OnChange = C_CheddarChange
       TabOrder = 8
     end
   end
@@ -194,34 +207,38 @@ object Form1: TForm1
     Height = 56
     Top = 384
     Width = 473
+    BorderSpacing.Around = 1
     Caption = 'Selecione a salada'
     ClientHeight = 37
     ClientWidth = 471
     TabOrder = 3
-    object CheckBox10: TCheckBox
+    object C_Alface: TCheckBox
       Left = 0
       Height = 21
       Hint = 'Caso selecione essa salada, não poderá selecionar Rúcula.'
       Top = 8
       Width = 61
       Caption = 'Alface'
+      OnChange = C_AlfaceChange
       TabOrder = 0
     end
-    object CheckBox11: TCheckBox
+    object C_Tomate: TCheckBox
       Left = 168
       Height = 21
       Top = 8
       Width = 71
       Caption = 'Tomate'
+      OnChange = C_TomateChange
       TabOrder = 1
     end
-    object CheckBox12: TCheckBox
+    object C_Rucula: TCheckBox
       Left = 336
       Height = 21
       Hint = 'Caso selecione essa salada, não poderá selecionar Alface.'
       Top = 8
       Width = 64
       Caption = 'Rúcula'
+      OnChange = C_RuculaChange
       TabOrder = 2
     end
   end
@@ -240,6 +257,7 @@ object Form1: TForm1
     Top = 496
     Width = 152
     Caption = 'Refazer'
+    OnClick = btnRefazerClick
     TabOrder = 5
   end
   object L_NomeLanche: TLabel
@@ -257,8 +275,8 @@ object Form1: TForm1
     Left = 175
     Height = 18
     Top = 496
-    Width = 83
-    Caption = 'tTotal a pagar'
+    Width = 79
+    Caption = 'Total a pagar'
     ParentColor = False
   end
   object I_Valor: TEdit
@@ -268,5 +286,28 @@ object Form1: TForm1
     Width = 312
     Enabled = False
     TabOrder = 6
+  end
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 548
+    Width = 496
+    Panels = <    
+      item
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+  object EventLog1: TEventLog
+    AppendContent = False
+    LogType = ltSystem
+    Active = False
+    RaiseExceptionOnError = False
+    DefaultEventType = etCustom
+    CustomLogType = 0
+    EventIDOffset = 0
+    Paused = False
+    left = 432
+    top = 16
   end
 end
