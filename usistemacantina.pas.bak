@@ -5,7 +5,7 @@ unit usistemacantina;
 interface
 
 uses
-  Classes, SysUtils, eventlog, FileUtil, Forms, Controls, Graphics, Dialogs,
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs,
   StdCtrls, ExtCtrls, ComCtrls, Variants;
 
 type
@@ -28,7 +28,6 @@ type
     C_Prato: TCheckBox;
     C_Cheddar: TCheckBox;
     Edit1: TEdit;
-    EventLog1: TEventLog;
     G_Salada: TGroupBox;
     G_Pao: TGroupBox;
     G_Hamburguer: TGroupBox;
@@ -58,16 +57,29 @@ type
     procedure C_RuculaChange(Sender: TObject);
     procedure C_TomateChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure H_R0Change(Sender: TObject);
+    procedure H_R1Change(Sender: TObject);
     procedure verificaMontar();
-    procedure mostraHint();
+    procedure mostraHint(Sender: TObject);
+    procedure qualONomeDesseLanche(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
   end;
 
+type tipoLanche = record
+   nome: string;
+   hamb: integer;
+   hasPresunto: boolean;
+   hasOvo: boolean;
+   hasBacon: boolean;
+   hasCalabresa: boolean;
+   hasPicles: boolean;
+end;
 var
   FormLanche: TFormLanche;
+  tiposLanche: array [1..6] of tipoLanche;
 
 implementation
 
@@ -125,6 +137,64 @@ end;
 procedure TFormLanche.FormCreate(Sender: TObject);
 begin
   Application.OnHint := @mostraHint;
+
+  tiposLanche[1].nome := 'X-Salada';
+  tiposLanche[1].hamb := 0;
+  tiposLanche[1].hasPresunto := true;
+  tiposLanche[1].hasOvo := false;
+  tiposLanche[1].hasBacon := false;
+  tiposLanche[1].hasCalabresa := false;
+  tiposLanche[1].hasPicles := false;
+
+  tiposLanche[2].nome := 'X-Egg';
+  tiposLanche[2].hamb := 0;
+  tiposLanche[2].hasPresunto := true;
+  tiposLanche[2].hasOvo := true;
+  tiposLanche[2].hasBacon := false;
+  tiposLanche[2].hasCalabresa := false;
+  tiposLanche[2].hasPicles := false;
+
+  tiposLanche[3].nome := 'X-Bacon';
+  tiposLanche[3].hamb := 0;
+  tiposLanche[3].hasPresunto := true;
+  tiposLanche[3].hasOvo := false;
+  tiposLanche[3].hasBacon := true;
+  tiposLanche[3].hasCalabresa := false;
+  tiposLanche[3].hasPicles := false;
+
+  tiposLanche[4].nome := 'X-Calabresa';
+  tiposLanche[4].hamb := 0;
+  tiposLanche[4].hasPresunto := true;
+  tiposLanche[4].hasOvo := false;
+  tiposLanche[4].hasBacon := false;
+  tiposLanche[4].hasCalabresa := true;
+  tiposLanche[4].hasPicles := false;
+
+  tiposLanche[5].nome := 'X-Tudo';
+  tiposLanche[5].hamb := 0;
+  tiposLanche[5].hasPresunto := true;
+  tiposLanche[5].hasOvo := true;
+  tiposLanche[5].hasBacon := true;
+  tiposLanche[5].hasCalabresa := true;
+  tiposLanche[5].hasPicles := true;
+
+  tiposLanche[6].nome := 'X-Frango';
+  tiposLanche[6].hamb := 1;
+  tiposLanche[6].hasPresunto := false;
+  tiposLanche[6].hasOvo := false;
+  tiposLanche[6].hasBacon := false;
+  tiposLanche[6].hasCalabresa := false;
+  tiposLanche[6].hasPicles := false;
+end;
+
+procedure TFormLanche.H_R0Change(Sender: TObject);
+begin
+
+end;
+
+procedure TFormLanche.H_R1Change(Sender: TObject);
+begin
+
 end;
 
 procedure TFormLanche.C_CreamChange(Sender: TObject);
@@ -207,9 +277,14 @@ begin
 
 end;
 
-procedure TFormLanche.mostraHint();
+procedure TFormLanche.mostraHint(Sender: TObject);
 begin
       StatusBar.Panels[0].Text:=Application.Hint;
+end;
+
+procedure qualONomeDesseLanche(Sender: TObject);
+begin
+
 end;
 
 end.
